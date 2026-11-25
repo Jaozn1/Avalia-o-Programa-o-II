@@ -1,22 +1,67 @@
 # BibliotecaORM
-Projeto de estudo de Programação II — João Antonio de Souza.
 
-Implementação didática independente, elaborada com auxílio de IA a partir do enunciado e do tutorial do professor. Revise e adapte antes de entregar.
+Projeto desenvolvido para a disciplina de Programação II do curso de Ciência da Computação da UNOESC.
 
-## Executar no Linux
-1. Instale PHP 8.2 ou superior, extensão pdo_mysql e MySQL.
-2. Execute `mysql -u root -p < sql/schema.sql` ou abra o SQL no MySQL Workbench.
-3. Configure as credenciais de um usuário local com acesso ao banco:
-   `export DB_USER=seu_usuario DB_NAME=biblioteca_orm DB_HOST=127.0.0.1`
-   `read -rs DB_PASS; export DB_PASS`
-4. Execute `php tests/entidades.php` e `php tests/demonstracao.php`.
-5. Registre as saídas reais no relatório. Use um banco de testes, pois a demonstração insere e exclui registros.
+## Sobre o projeto
 
-## Como funciona
-Entidades guardam dados e validam valores. A classe Entidade controla a identidade. RepositoryInterface define o contrato; AbstractRepository compartilha o CRUD e a execução parametrizada. Os repositórios concretos fornecem tabelas, colunas e hidratação. LivroRepository recupera os autores com JOIN e mantém os vínculos em uma transação. A exclusão com vínculos é bloqueada pela FK; após desvincular, pode ser realizada.
+O sistema tem como objetivo simular o gerenciamento de livros e autores de uma biblioteca, utilizando os conceitos de orientação a objetos e ORM para trabalhar com o banco de dados.
 
-## Para estudar e adaptar
-Explique por que PDO sozinho não é ORM, como o método hidratar transforma uma linha em objeto, por que o contrato permite polimorfismo e o que acontece se um vínculo falhar. Experimente alterar uma validação e criar um teste próprio. A implementação usa carregamento separado de autores (N+1 em listagens), sem ORM comercial ou identity map global. As identidades são estáveis, mas objetos de consultas diferentes não são necessariamente a mesma instância.
+## Tecnologias utilizadas
 
-## Validação
-Sintaxe PHP e teste de entidades verificados. A demonstração MySQL precisa ser executada localmente. Não há credenciais reais no projeto.
+- PHP 8.3
+- MySQL 8.0
+- PDO
+- Visual Studio Code
+- Linux Mint
+- Git e GitHub
+
+## Funcionalidades
+
+- Cadastro de livros e autores.
+- Busca e listagem de registros.
+- Atualização e exclusão de dados.
+- Relacionamento entre livros e autores.
+- Controle de transações e rollback.
+- Validação das entidades.
+
+## Como executar
+
+Primeiro, importe o arquivo `sql/schema.sql` no MySQL:
+
+```bash
+mysql -u root -p < sql/schema.sql
+```
+
+Configure a conexão com o banco de dados:
+
+```bash
+export DB_USER=root
+export DB_NAME=biblioteca_joao
+read -rs DB_PASS
+export DB_PASS
+```
+
+Depois, execute os testes pelo terminal:
+
+```bash
+php tests/entidades.php
+php tests/demonstracao.php
+```
+
+Utilize um banco de testes, pois a demonstração insere e exclui registros.
+
+## Resultados
+
+Os testes foram realizados no Linux Mint utilizando PHP e MySQL. As operações de cadastro, busca, atualização, relacionamento, rollback e exclusão apresentaram os resultados esperados.
+
+## Observações
+
+O projeto foi elaborado com base no material disponibilizado pelo professor, com auxílio de IA na implementação e documentação. A configuração do ambiente e a execução dos testes foram realizadas localmente.
+
+## Acadêmico
+
+João Antonio de Souza
+
+Ciência da Computação – UNOESC
+
+Programação II
